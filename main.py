@@ -12,6 +12,7 @@ def load_recipes(file_path):
     recipes = [line.strip() for line in data if line.strip() and "Little Alchemy" not in line]
     return recipes
 
+# на будующее: похоже, эмбеденги здесь совсем не нужны (только ухудшают поиск) -> не лучший пример рага
 def create_knowledge_base(recipes):
     documents = [Document(page_content=recipe) for recipe in recipes]
     embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
